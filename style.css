@@ -1,0 +1,22 @@
+.jaja{
+    width: 140px;
+}
+
+
+@media (max-width: 768px) {
+    #logo{
+        width: 100px;
+        height: 100px;
+    }   
+
+    .ujang h1{
+        font-size:large;
+    }
+    .ujang h4{
+        font-size:large;
+    }
+    .jaja{
+        width: 100px;
+        height: 120px;
+    }
+}

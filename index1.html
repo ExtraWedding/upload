@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    
+    <section style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <form id="registrationForm" style="border: 5px solid; border-radius: 20px; padding: 40px;">
+            <h1 style="text-align: center; margin-top: 0px;">FORMULIR PENDAFTARAN <br> EKSTRAKURIKULER</h1>
+            <table>
+                <tr>
+                    <td><label for="nama">Nama Lengkap:</label></td>
+                    <td><input type="text" id="nama" name="nama" placeholder="Nama" required></td>
+                </tr>
+                <tr>
+                    <td><label for="nis">NIS:</label></td>
+                    <td><input type="number" id="nis" name="nis" placeholder="34253" required></td>
+                </tr>
+                <tr>
+                    <td><label for="kelas">Kelas:</label></td>
+                    <td>
+                        <select id="kelas" name="kelas" required>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="tgl_lahir">Tanggal Lahir (DD-MM-YYYY):</label></td>
+                    <td><input type="date" id="tgl_lahir" name="tgl_lahir" required></td>
+                </tr>
+                <tr>
+                    <td><label>Jenis Kelamin:</label></td>
+                    <td>
+                        <input type="radio" id="laki-laki" name="jenis_kelamin" value="Laki-laki" required>
+                        <label for="laki-laki">Laki-laki</label>
+                        <br>
+                        <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan" required>
+                        <label for="perempuan">Perempuan</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Pilih Ekstrakurikuler:</label></td>
+                    <td>
+                        <input type="checkbox" id="pramuka" name="ekstrakurikuler" value="Pramuka">
+                        <label for="pramuka">Pramuka</label><br>
+                        <input type="checkbox" id="pmr" name="ekstrakurikuler" value="PMR">
+                        <label for="pmr">PMR</label><br>
+                        <input type="checkbox" id="kir" name="ekstrakurikuler" value="KIR">
+                        <label for="kir">KIR</label><br>
+                        <input type="checkbox" id="paskibra" name="ekstrakurikuler" value="Paskibra">
+                        <label for="paskibra">Paskibra</label><br>
+                        <input type="checkbox" id="seni_tari" name="ekstrakurikuler" value="Seni Tari">
+                        <label for="seni_tari">Seni Tari</label><br>
+                        <input type="checkbox" id="musik" name="ekstrakurikuler" value="Musik">
+                        <label for="musik">Musik</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Alamat Email:</label></td>
+                    <td><input type="email" id="email" name="email" placeholder="fulan@gmail.com" required></td>
+                </tr>
+                <tr>
+                    <td><label for="telepon">Nomor Telepon:</label></td>
+                    <td><input type="tel" id="telepon" placeholder="08xxxxxx" name="telepon" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Kirim">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+
+    <section class="d-flex justify-content-center align-items-center mt-0 mb-5">
+        <div  style="border: 5px solid; border-radius: 20px; padding: 40px;">
+            <div class="d-flex gap-lg-5">
+                <img id="logo" src="logo.png" width="120px" alt="">
+                <div class="text-center ujang mt-4">
+                    <h1 class="fw-bold">KARTU TANDA SISWA</h1>
+                    <h4>SMA BRAWIJAYA SMART SCHOOL</h4>
+                </div>
+            </div>
+            <div class="d-flex gap-4 mt-4 border-top border-5 border-black pt-5">
+                <img src="WhatsApp Image 2024-02-03 at 17.23.15_1da40147.jpg"  class=" jaja rounded-5" alt="">
+                <div class="">
+                    <p class="fw-bold m-0">Nama : <span id="cardName"></span></p>
+                    <p class="fw-bold m-0">NIS : <span id="cardNIS"></span></p>
+                    <p class="fw-bold m-0">Jenis Kelamin : <span id="cardKelamin"></span></p>
+                    <p class="fw-bold m-0">Kelas : <span id="cardClass"></span></p>
+                    <p class="fw-bold m-0">TTL : <span id="cardTTL"></span></p>
+                    <p class="fw-bold m-0">Telepon : <span id="cardPhone"></span></p>
+                    <p class="fw-bold m-0">Ekstrakurikuler : <span id="cardEkstra"></span></p>        
+                </div>
+            </div>	
+        </div>
+    </section>
+    
+  
+    
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman form
+        
+
+            const name = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tglLahir = document.getElementById('tgl_lahir').value;
+            const telepon = document.getElementById('telepon').value;
+        
+          
+            document.getElementById('cardName').textContent = '';
+            document.getElementById('cardNIS').textContent = '';
+            document.getElementById('cardClass').textContent = '';
+            document.getElementById('cardTTL').textContent = '';
+            document.getElementById('cardPhone').textContent = '';
+            document.getElementById('cardEkstra').textContent = ''; 
+            document.getElementById('cardKelamin').textContent = ''; 
+        
+          
+            document.getElementById('cardName').textContent = name;
+            document.getElementById('cardNIS').textContent = nis;
+            document.getElementById('cardClass').textContent = kelas;
+            document.getElementById('cardTTL').textContent = tglLahir;
+            document.getElementById('cardPhone').textContent = telepon;
+        
+           
+            const ekstrakurikuler = [];
+            document.querySelectorAll('input[name="ekstrakurikuler"]:checked').forEach(function(checkbox) {
+                ekstrakurikuler.push(checkbox.value);
+            });
+        
+           
+            const jenisKelamin = [];
+            document.querySelectorAll('input[name="jenis_kelamin"]:checked').forEach(function(radio) {
+                jenisKelamin.push(radio.value);
+            });
+        
+           
+            document.getElementById('cardEkstra').textContent = ekstrakurikuler.join(', ');
+            document.getElementById('cardKelamin').textContent =  jenisKelamin.join(', ');
+
+            alert("Data Anda Berhasil di Simpan");
+        });
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
